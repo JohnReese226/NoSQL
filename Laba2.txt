@@ -10,4 +10,4 @@ mb.runSQLQuery(`
 3.
 db.customers.aggregate({$project: {_id: 0, "First Name": 1, "Last Name": 1, count: {$size: "$Rentals"}}})
 4.
-db.customers.find({"Rentals.filmId": {$in: db.films.find({"Category": "Classics"}).map((f) => {return f._id;})}}, {_id: 0})
+db.customers.find({"Rentals.filmId": {$in: db.films.find({Category: "Classics"}).map((f) => {return f._id;})}}, {_id: 0})
